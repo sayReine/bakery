@@ -1,25 +1,25 @@
 import React  from 'react';
 import { Product} from '../types';
-import { useCart } from "../contexts/cartContext";
+// import { useCart } from "../contexts/cartContext";
 
 interface ProductCardProps {
     product: Product;
     onAddToCart: (product: Product) => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-    const { dispatch } = useCart();
+const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
+    // const { dispatch } = useCart();
 
-    const handleAddToCart = () => {
-      dispatch({ type: "ADD_TO_CART", product });
-    };
+    // const handleAddToCart = () => {
+    //   dispatch({ type: "ADD_TO_CART", product });
+    // };
 
     return(
         <div className="bg-white rounded-2xl shadow-md p-4 flex flex-col justify-between">
       <img
         src={product.image}
         alt={product.name}
-        className="w-full h-32 object-contain rounded-xl"
+        className="mx-auto block h-24 rounded-full sm:mx-0 sm:shrink-0"
       />
       <div className="mt-4 space-y-2">
         <h2 className="text-lg font-semibold">{product.name}</h2>
@@ -37,7 +37,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </div>
         <button
           className="bg-blue-500 text-white rounded-xl py-1 px-3 hover:bg-blue-600 transition mt-2"
-          onClick={handleAddToCart}
+          onClick={() => onAddToCart(product)}
         >
           Add to Cart
         </button>

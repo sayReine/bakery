@@ -3,6 +3,8 @@ import productsData from "./assets/products.json";
 import { Product } from "./types";
 import ProductGrid from "./components/ProductGrid";
 import FilterPanel from "./components/FilterPanel";
+// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// import ShoppingCart from "./components/ShoppingCart";
 
 const App: React.FC = () => {
   const [products] = useState<Product[]>(productsData);
@@ -47,6 +49,8 @@ const App: React.FC = () => {
   };
 
   return (
+    
+
     <div className="max-w-6xl mx-auto p-4">
       <h1 className="text-3xl font-bold mb-6">🛍️ Product Catalog</h1>
 
