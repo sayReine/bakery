@@ -12,7 +12,10 @@ type CartAction =
   | { type: "ADD_TO_CART"; product: Product }
   | { type: "REMOVE_FROM_CART"; id: number }
   | { type: "UPDATE_QUANTITY"; id: number; quantity: number }
+  | { type: "INCREASE_QUANTITY"; id: number }
+  | { type: "DECREASE_QUANTITY"; id: number }
   | { type: "CLEAR_CART" };
+
 
 const CartContext = createContext<{
   cart: CartState;
@@ -46,6 +49,19 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
           ? { ...item, quantity: action.quantity }
           : item
       );
+      case "INCREASE_QUANTITY":
+  return state.map((item) =>
+    item.product.id === action.id
+      ? { ...item, quantity: item.quantity + 1 }
+      : item
+  );
+
+case "DECREASE_QUANTITY":
+  return state.map((item) =>
+    item.product.id === action.id && item.quantity > 1
+      ? { ...item, quantity: item.quantity - 1 }
+      : item
+  );
 
     case "CLEAR_CART":
       return [];
@@ -53,6 +69,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
     default:
       return state;
   }
+  
 };
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {

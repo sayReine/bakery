@@ -6,5 +6,6 @@ export interface Product {
     category: string;
     rating: number;
     description: string;
+    quantity?: number;
   }
   

@@ -38,7 +38,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
   };
 
   return (
-    <div className="bg-white p-4 rounded-2xl shadow-md mb-6 w-full md:max-w-sm">
+    <div className="bg-white p-4 rounded-2xl shadow-md  w-full md:max-w-sm" >
       <h2 className="text-xl font-semibold mb-4">🔎 Filters</h2>
 
       {/* Category Checkboxes */}

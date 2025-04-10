@@ -1,17 +1,28 @@
-import React from 'react'
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ShoppingCart from "./ShoppingCart";
-import ProductGrid from "./ProductGrid";
+import React from "react";
+import { Link } from "react-router-dom";
+import { useCart } from "../contexts/cartContext";
 
-function Navbar() {
+const Navbar: React.FC = () => {
+  const { cart } = useCart();
+
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
-    <Router>
-  <Routes>
-    <Route path="/" element={<ProductGrid />} />
-    <Route path="/cart" element={<ShoppingCart />} />
-  </Routes>
-</Router>
-  )
-}
+    <nav className="bg-white shadow p-4 flex justify-between items-center">
+      <Link to="/" className="text-xl font-bold text-blue-600">
+        🛍️ MyStore
+      </Link>
 
-export default Navbar
+      <Link to="/cart" className="relative text-2xl">
+        🛒
+        {totalItems > 0 && (
+          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+            {totalItems}
+          </span>
+        )}
+      </Link>
+    </nav>
+  );
+};
+
+export default Navbar;
