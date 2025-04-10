@@ -1,25 +1,18 @@
-import React  from 'react';
-import { Product} from '../types';
-// import { useCart } from "../contexts/cartContext";
+import React from "react";
+import { Product } from "../types";
 
 interface ProductCardProps {
-    product: Product;
-    onAddToCart: (product: Product) => void;
+  product: Product;
+  onAddToCart: (product: Product) => void;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
-    // const { dispatch } = useCart();
-
-    // const handleAddToCart = () => {
-    //   dispatch({ type: "ADD_TO_CART", product });
-    // };
-
-    return(
-        <div className="bg-white rounded-2xl shadow-md p-4 flex flex-col justify-between">
+  return (
+    <div className="bg-white rounded-2xl shadow-md p-4 flex flex-col justify-between">
       <img
         src={product.image}
         alt={product.name}
-        className="mx-auto block h-24 rounded-full sm:mx-0 sm:shrink-0"
+        className="w-full h-48 object-cover rounded-xl"
       />
       <div className="mt-4 space-y-2">
         <h2 className="text-lg font-semibold">{product.name}</h2>
@@ -43,8 +36,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
         </button>
       </div>
     </div>
-
-    );
+  );
 };
 
 export default ProductCard;

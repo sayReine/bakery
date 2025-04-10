@@ -1,4 +1,6 @@
+import './App.css';
 import React, { useState, useMemo } from "react";
+
 import productsData from "./assets/products.json";
 import { Product } from "./types";
 import ProductGrid from "./components/ProductGrid";
