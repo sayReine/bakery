@@ -25,6 +25,30 @@
       "category": "Footwear",
       "rating": 3.5,
       "description": "Lightweight running shoes for everyday jogs"
-    }
+    },
+    {"id": 4,
+      "name": "Running Outfit",
+      "price": 89.99,
+      "image": "https://i.pinimg.com/736x/1c/2b/43/1c2b43d5253952400a464f3fe4208f7c.jpg",
+      "category": "Outfit",
+      "rating": 3.5,
+      "description": "Lightweight running shoes for everyday jogs"
+    },
+    {"id": 4,
+    "name": "Running Shoes",
+    "price": 89.99,
+    "image": "https://i.pinimg.com/736x/84/61/c7/8461c75d7ba94d52373279d8e8ddf3f1.jpg",
+    "category": "Footwear",
+    "rating": 3.5,
+    "description": "Lightweight running shoes for everyday jogs"
+  },
+  {"id": 4,
+    "name": " Running Shoes",
+    "price": 89.99,
+    "image": "https://i.pinimg.com/736x/01/b0/98/01b098cd1efa2898bce0b4454da378be.jpg",
+    "category": "Footwear",
+    "rating": 3.5,
+    "description": "Lightweight running shoes for everyday jogs"
+  }
   ]
   
