@@ -70,7 +70,7 @@ const App: React.FC = () => {
           <div>
             <Home />
             <div className="max-w-6xl mx-auto p-4">
-              <h1 className="text-3xl font-bold mb-6">🛍️ Product Catalog</h1>
+              <h1 className="text-3xl font-bold mb-10 mt-10">🛍️ Product Catalog</h1>
               <div className="flex flex-col md:flex-row gap-6">
                 <FilterPanel
                   categories={allCategories}
