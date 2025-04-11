@@ -24,7 +24,8 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <div className="min-h-screen flex flex-col bg-gradient-to-r from-blue-900 via-blue-600 to-blue-300 text-white">
+      <div className="min-h-screen flex flex-col bg-gradient-to-r from-teal-900 via-teal-600 to-teal-400 text-white">
+
         {/* Navbar - same */}
         <nav className="bg-white text-blue-900 p-4 flex justify-between items-center shadow-md">
           <Link to="/" className="flex items-center gap-2 text-xl font-bold text-blue-500">
