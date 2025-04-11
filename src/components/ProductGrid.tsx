@@ -47,7 +47,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products, onAddToCart }) => {
   }, [filter, products]);
 
   return (
-    <div className="flex flex-col md:flex-row gap-6">
+    <div className="flex flex-col md:flex-row gap-10">
       <FilterPanel
         categories={allCategories}
         minPrice={minPrice}
