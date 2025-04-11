@@ -57,7 +57,7 @@ const App: React.FC = () => {
 
         {/* Navbar */}
         <nav className="bg-white text-blue-900 p-4 flex justify-between items-center shadow-md">
-          <Link to="/" className="flex items-center gap-2 text-xl font-bold text-pink-500">
+          <Link to="/" className="flex items-center gap-2 text-xl font-bold text-blue-500">
             <img src={logo} alt="logo" className="h-8 w-auto" />
             <p className='text-black'><span className='text-blue-700'>TECH</span>STYLE</p>
           </Link>
@@ -93,7 +93,7 @@ const App: React.FC = () => {
             >
               🛒
               {totalItems > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                   {totalItems}
                 </span>
               )}
@@ -110,14 +110,14 @@ const App: React.FC = () => {
 
             <Route path="/shop" element={
               <div className="max-w-6xl mx-auto p-4">
-                <h1 className="text-3xl font-bold mb-10 mt-10 text-pink-600">🛍️ Shop Our Collection</h1>
+                <h1 className="text-3xl font-bold mb-10 mt-10 text-blue-600">🛍️ Shop Our Collection</h1>
                 <div className="flex flex-col md:flex-row gap-6">
-                  <FilterPanel
+                  {/* <FilterPanel
                     categories={allCategories}
                     filter={filter}
                     onFilterChange={setFilter}
                     onClearFilters={clearFilters}
-                  />
+                  /> */}
                   <ProductGrid products={filteredProducts} onAddToCart={handleAddToCart} />
                 </div>
               </div>
