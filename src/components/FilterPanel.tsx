@@ -2,6 +2,8 @@ import React from 'react';
 
 interface FilterPanelProps {
   categories: string[];
+  minPrice: number;
+  maxPrice: number;
   filter: {
     categories: string[];
     priceRange: [number, number];
@@ -17,6 +19,8 @@ interface FilterPanelProps {
 
 const FilterPanel: React.FC<FilterPanelProps> = ({
   categories,
+  minPrice,
+  maxPrice,
   filter,
   onFilterChange,
   onClearFilters,
@@ -40,8 +44,9 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
   };
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow-lg">
+    <div className="bg-white p-6 rounded-xl shadow-lg w-full md:w-1/3">
       <h3 className="text-xl font-semibold mb-4">Filters</h3>
+
       {/* Category Filters */}
       <div className="mb-4">
         <h4 className="text-lg font-semibold">Categories</h4>
@@ -69,16 +74,16 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
         <div className="flex items-center space-x-4">
           <input
             type="range"
-            min="0"
-            max="1000"
+            min={minPrice}
+            max={maxPrice}
             value={filter.priceRange[0]}
             onChange={(e) => handlePriceRangeChange(e, 0)}
             className="w-full"
           />
           <input
             type="range"
-            min="0"
-            max="1000"
+            min={minPrice}
+            max={maxPrice}
             value={filter.priceRange[1]}
             onChange={(e) => handlePriceRangeChange(e, 1)}
             className="w-full"

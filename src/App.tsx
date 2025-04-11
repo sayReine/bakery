@@ -18,11 +18,15 @@ const App: React.FC = () => {
   const [products] = useState<Product[]>(productsData);
   const { dispatch, cart } = useCart();
 
-  const allCategories = Array.from(new Set(products.map((p) => p.category)));
+  // const allCategories = Array.from(new Set(products.map((p) => p.category)));
+
+  const prices = products.map((p) => p.price);
+const minPrice = Math.min(...prices);
+const maxPrice = Math.max(...prices);
 
   const [filter, setFilter] = useState({
     categories: [] as string[],
-    priceRange: [0, 1000] as [number, number],
+    priceRange: [minPrice, maxPrice] as [number, number],
     minRating: 0,
   });
 
