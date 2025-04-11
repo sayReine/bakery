@@ -9,10 +9,10 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="bg-white shadow p-4 flex justify-between items-center">
+      
       <Link to="/" className="text-xl font-bold text-blue-600">
-        🛍️ MyStore
-      </Link>
-
+  <img src="/logo.png" alt="MyStore Logo" className="h-8 w-auto" />
+</Link>
       <Link to="/cart" className="relative text-2xl">
         🛒
         {totalItems > 0 && (
