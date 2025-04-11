@@ -49,7 +49,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
 
       {/* Category Filters */}
       <div className="mb-4">
-        <h4 className="text-lg font-semibold">Categories</h4>
+        <h4 className="text-lg font-semibold text-black mb-5">Categories</h4>
         <div className="space-y-2">
           {categories.map((category) => (
             <div key={category} className="flex items-center">
@@ -70,7 +70,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
 
       {/* Price Range Filter */}
       <div className="mb-4">
-        <h4 className="text-lg font-semibold">Price Range</h4>
+        <h4 className="text-lg font-semibold text-black mb-5">Price Range</h4>
         <div className="flex items-center space-x-4">
           <input
             type="range"
@@ -97,14 +97,14 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
 
       {/* Rating Filter */}
       <div className="mb-4">
-        <h4 className="text-lg font-semibold">Minimum Rating</h4>
+        <h4 className="text-lg font-semibold text-black mb-5">Minimum Rating</h4>
         <input
           type="number"
           min="0"
           max="5"
           value={filter.minRating}
           onChange={handleRatingChange}
-          className="w-full p-2 border border-gray-300 rounded-lg"
+          className="w-full p-2 border border-gray-300 rounded-lg text-black "
         />
       </div>
 

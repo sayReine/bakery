@@ -1,17 +1,28 @@
 import React, { useMemo, useState } from 'react';
 import FilterPanel from './FilterPanel';
-import ProductCard from './ProductCard'; // assume you have this
-import { products } from '../assets/products.json'; // Your products data
+import ProductCard from './ProductCard';
+import { Product } from '../types';
 
-const ProductGrid: React.FC = () => {
+type FilterState = {
+  categories: string[];
+  priceRange: [number, number];
+  minRating: number;
+};
+
+interface ProductGridProps {
+  products: Product[];
+  onAddToCart: (product: Product) => void;
+}
+
+const ProductGrid: React.FC<ProductGridProps> = ({ products, onAddToCart }) => {
   const allCategories = Array.from(new Set(products.map((p) => p.category)));
   const prices = products.map((p) => p.price);
   const minPrice = Math.min(...prices);
   const maxPrice = Math.max(...prices);
 
-  const [filter, setFilter] = useState({
+  const [filter, setFilter] = useState<FilterState>({
     categories: [],
-    priceRange: [minPrice, maxPrice] as [number, number],
+    priceRange: [minPrice, maxPrice],
     minRating: 0,
   });
 
@@ -33,7 +44,7 @@ const ProductGrid: React.FC = () => {
 
       return inCategory && inPriceRange && hasMinRating;
     });
-  }, [filter]);
+  }, [filter, products]);
 
   return (
     <div className="flex flex-col md:flex-row gap-6">
@@ -49,7 +60,7 @@ const ProductGrid: React.FC = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-1">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} />
           ))
         ) : (
           <p>No products found.</p>

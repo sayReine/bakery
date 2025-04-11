@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
         <div>
           <h3 className="text-lg font-semibold mb-3 text-white-700">Explore</h3>
           <ul className="space-y-2 text-sm">
-            <li><a href="./components/home.tsx" className="hover:text-gray-500 transition duration-300">Home</a></li>
+            <li><a href="./components/Home.tsx" className="hover:text-gray-500 transition duration-300">Home</a></li>
             <li><a href="shop.tsx" className="hover:text-gray-500 transition duration-300">Shop</a></li>
             <li><a href="about us.tsx" className="hover:text-gray-500 transition duration-300">About Us</a></li>
             <li><a href="contact.tsx" className="hover:text-gray-500 transition duration-300">Contact</a></li>
@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
 
         {/* Social Media */}
         <div>
-          <h3 className="text-lg font-semibold mb-3 text-white-700">Follow Us</h3>
+          <h3 className="text-lg font-semibold mb-3 text-white-700 relative right-29">Follow Us</h3>
           <div className="flex gap-5 text-2xl">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-500 transition">
               <FontAwesomeIcon icon={faFacebookF} />
