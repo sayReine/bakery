@@ -48,7 +48,8 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen bg-gradient-to-br from-white to-pink-100">
+
         {/* Navbar */}
         <nav className="bg-pink-800 text-white p-4 flex justify-between">
           <Link to="/" className="text-xl font-bold text-pink-600">

@@ -33,7 +33,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
         <h2 className="text-lg font-semibold">{product.name}</h2>
         <p className="text-gray-500">${product.price.toFixed(2)}</p>
         <p className="text-sm text-gray-400">{product.category}</p>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-2 relative left-5">
           {Array.from({ length: 5 }, (_, i) => (
             <span key={i}>
               {i < Math.round(product.rating) ? '⭐' : '☆'}
@@ -42,7 +42,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
           <span className="text-sm text-gray-500 ml-1">({product.rating.toFixed(1)})</span>
         </div>
         <button
-          className="bg-blue-500 text-white rounded-xl py-1 px-3 hover:bg-blue-600 transition mt-2"
+          className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-xl"
           onClick={handleAddToCart}
         >
           Add to Cart
