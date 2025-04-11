@@ -41,14 +41,14 @@ const ShoppingCart: React.FC = () => {
                   <p>${item.product.price.toFixed(2)}</p>
                   <div className="flex items-center gap-2 mt-2">
                     <button
-                      className="bg-gray-300 p-2 rounded-md"
+                      className="bg-blue-500 font-bold p-2 px-5 rounded-md"
                       onClick={() => handleQuantityChange(item.product.id, item.quantity - 1)}
                     >
                       -
                     </button>
-                    <span>{item.quantity}</span>
+                    <span className="font-bold text-lg">{item.quantity}</span>
                     <button
-                      className="bg-gray-300 p-2 rounded-md"
+                      className="bg-blue-500 font-bold p-2 px-5 rounded-md"
                       onClick={() => handleQuantityChange(item.product.id, item.quantity + 1)}
                     >
                       +
