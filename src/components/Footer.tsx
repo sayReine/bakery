@@ -23,10 +23,10 @@ const Footer: React.FC = () => {
         <div>
           <h3 className="text-lg font-semibold mb-3 text-pink-700">Explore</h3>
           <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-pink-500 transition duration-300">Home</a></li>
-            <li><a href="#" className="hover:text-pink-500 transition duration-300">Shop</a></li>
-            <li><a href="#" className="hover:text-pink-500 transition duration-300">About Us</a></li>
-            <li><a href="#" className="hover:text-pink-500 transition duration-300">Contact</a></li>
+            <li><a href="./components/home.tsx" className="hover:text-pink-500 transition duration-300">Home</a></li>
+            <li><a href="shop.tsx" className="hover:text-pink-500 transition duration-300">Shop</a></li>
+            <li><a href="about us.tsx" className="hover:text-pink-500 transition duration-300">About Us</a></li>
+            <li><a href="contact.tsx" className="hover:text-pink-500 transition duration-300">Contact</a></li>
           </ul>
         </div>
 
