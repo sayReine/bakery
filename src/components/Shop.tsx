@@ -6,19 +6,22 @@ import FilterPanel from "./FilterPanel";
 
 const Shop: React.FC = () => {
   const [products] = useState<Product[]>(productsData);
+
+  const prices = products.map((product) => product.price);
+  const minPrice = Math.min(...prices);
+  const maxPrice = Math.max(...prices);
+
   const [filter, setFilter] = useState({
     categories: [] as string[],
-    priceRange: [0, 1000] as [number, number],
+    priceRange: [minPrice, maxPrice] as [number, number],
     minRating: 0,
   });
 
-  // ✅ Extract unique categories from products
   const categories = useMemo(() => {
     const allCategories = products.map((product) => product.category);
     return Array.from(new Set(allCategories));
   }, [products]);
 
-  // ✅ Filter logic
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
       const inCategory =
@@ -35,7 +38,7 @@ const Shop: React.FC = () => {
   const clearFilters = () => {
     setFilter({
       categories: [],
-      priceRange: [0, 1000],
+      priceRange: [minPrice, maxPrice],
       minRating: 0,
     });
   };
@@ -49,6 +52,8 @@ const Shop: React.FC = () => {
         <FilterPanel
           categories={categories}
           filter={filter}
+          minPrice={minPrice}
+          maxPrice={maxPrice}
           onFilterChange={setFilter}
           onClearFilters={clearFilters}
         />
