@@ -6,6 +6,9 @@ import { Product } from "./types";
 import ProductGrid from "./components/ProductGrid";
 import FilterPanel from "./components/FilterPanel";
 import Footer from "./components/Footer";
+import About from './components/About Us';
+import Shop from './components/Shop';
+import Contact from './components/Contact';
 import Home from "./components/Home";
 import ShoppingCart from "./components/ShoppingCart";
 import { useCart } from "./contexts/cartContext";
@@ -50,42 +53,44 @@ const App: React.FC = () => {
     <Router>
       <div className="flex flex-col min-h-screen">
         {/* Navbar */}
-        <nav className="bg-pink-800 text-white p-4 flex justify-between">
-          <Link to="/" className="text-xl font-bold text-pink-600">
+        <nav className="bg-pink-800 text-white p-4 flex justify-between items-center">
+          <Link to="/" className="text-xl font-bold text-pink-300">
             <img src={logo} alt="logo" className="h-8 w-auto" />
           </Link>
-          <Link to="/" className="text-lg font-bold">🏠 Home</Link>
-          <Link to="/" className="text-lg font-bold">About Us</Link>
-          <Link to="/" className="text-lg font-bold">Shop</Link>
-          <Link to="/" className="text-lg font-bold">Contact</Link>
-          <Link to="/cart" className="relative text-2xl">
-            🛒 
-            
-            {totalItems > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                {totalItems}
-              </span>
-            )}
-          </Link>
+          <div className="flex gap-4">
+            <Link to="/" className="text-lg font-bold hover:text-gray-200">🏠 Home</Link>
+            <Link to="/about" className="text-lg font-bold hover:text-gray-200">About Us</Link>
+            <Link to="/shop" className="text-lg font-bold hover:text-gray-200">Shop</Link>
+            <Link to="/contact" className="text-lg font-bold hover:text-gray-200">Contact</Link>
+            <Link to="/cart" className="relative text-2xl hover:text-gray-200">
+              🛒
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
+            </Link>
+          </div>
         </nav>
 
         {/* Page Content */}
         <main className="flex-grow">
           <Routes>
-            <Route path="/" element={
-              <div>
-                <Home />
-                <div className="max-w-6xl mx-auto p-4">
-                  <h1 className="text-3xl font-bold mb-10 mt-10">🛍️ Product Catalog</h1>
-                  <div className="flex flex-col md:flex-row gap-6">
-                    <FilterPanel
-                      categories={allCategories}
-                      filter={filter}
-                      onFilterChange={setFilter}
-                      onClearFilters={clearFilters}
-                    />
-                    <ProductGrid products={filteredProducts} onAddToCart={handleAddToCart} />
-                  </div>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+
+            <Route path="/shop" element={
+              <div className="max-w-6xl mx-auto p-4">
+                <h1 className="text-3xl font-bold mb-10 mt-10 text-pink-600">🛍️ Shop Our Collection</h1>
+                <div className="flex flex-col md:flex-row gap-6">
+                  <FilterPanel
+                    categories={allCategories}
+                    filter={filter}
+                    onFilterChange={setFilter}
+                    onClearFilters={clearFilters}
+                  />
+                  <ProductGrid products={filteredProducts} onAddToCart={handleAddToCart} />
                 </div>
               </div>
             } />
@@ -94,7 +99,7 @@ const App: React.FC = () => {
           </Routes>
         </main>
 
-        {/* Footer (always at the bottom) */}
+        {/* Footer */}
         <Footer />
       </div>
     </Router>
