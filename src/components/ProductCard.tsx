@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Product } from '../types';
 
 interface ProductCardProps {
@@ -7,12 +7,27 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handleAddToCart = () => {
+    onAddToCart(product);
+    setShowPopup(true);
+    setTimeout(() => setShowPopup(false), 2000); // Hide after 2 seconds
+  };
+
   return (
-    <div className="bg-white rounded-2xl shadow p-4 flex flex-col w-60">
+    <div className="relative bg-white rounded-2xl shadow p-4 flex flex-col w-60">
+      {/* Pop-up Box */}
+      {showPopup && (
+        <div className="absolute top-2 right-2 bg-green-500 text-white px-3 py-1 rounded-lg shadow-md text-sm animate-bounce">
+          ✅ Added to Cart
+        </div>
+      )}
+
       <img
         src={product.image}
         alt={product.name}
-        className="h-60 w-150 object-cover rounded-xl mb-4"
+        className="h-60 w-full object-cover rounded-xl mb-4"
       />
       <div className="mt-4 space-y-2">
         <h2 className="text-lg font-semibold">{product.name}</h2>
@@ -27,8 +42,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
           <span className="text-sm text-gray-500 ml-1">({product.rating.toFixed(1)})</span>
         </div>
         <button
-          className="bg-pink-500 cursor-pointer text-white rounded-xl py-1 px-3 hover:bg-rose-600 transition mt-2"
-          onClick={() => onAddToCart(product)} // Use onAddToCart from props
+          className="bg-blue-500 text-white rounded-xl py-1 px-3 hover:bg-blue-600 transition mt-2"
+          onClick={handleAddToCart}
         >
           Add to Cart
         </button>
