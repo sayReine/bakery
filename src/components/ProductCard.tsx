@@ -16,34 +16,43 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
   };
 
   return (
-    <div className="relative bg-white rounded-2xl shadow p-4 flex flex-col w-60">
-      {/* Pop-up Box */}
+    <div className="relative bg-white rounded-2xl shadow-lg p-4 w-full max-w-xs flex flex-col hover:shadow-xl transition-all">
+      {/* Pop-up */}
       {showPopup && (
-        <div className="absolute top-2 right-2 bg-green-500 text-white px-3 py-1 rounded-lg shadow-md text-sm animate-bounce">
+        <div className="absolute top-3 right-3 bg-green-500 text-white px-3 py-1 rounded-lg shadow-md text-sm animate-bounce z-10">
           ✅ Added to Cart
         </div>
       )}
 
+      {/* Image */}
       <img
         src={product.image}
         alt={product.name}
-        className="h-60 w-full object-cover rounded-xl mb-4"
+        className="h-64 w-full object-cover rounded-xl mb-4"
       />
-      <div className="mt-4 space-y-2">
-        <h2 className="text-lg font-semibold">{product.name}</h2>
-        <p className="text-gray-500">${product.price.toFixed(2)}</p>
+
+      {/* Info */}
+      <div className="flex flex-col gap-2">
+        <h2 className="text-lg font-semibold text-gray-800">{product.name}</h2>
+        <p className="text-gray-500 font-medium">${product.price.toFixed(2)}</p>
         <p className="text-sm text-gray-400">{product.category}</p>
-        <div className="flex items-center gap-2 relative left-5">
+
+        {/* Rating */}
+        <div className="flex items-center gap-1 text-yellow-400 text-base">
           {Array.from({ length: 5 }, (_, i) => (
             <span key={i}>
               {i < Math.round(product.rating) ? '⭐' : '☆'}
             </span>
           ))}
-          <span className="text-sm text-gray-500 ml-1">({product.rating.toFixed(1)})</span>
+          <span className="text-sm text-gray-500 ml-1">
+            ({product.rating.toFixed(1)})
+          </span>
         </div>
+
+        {/* Add to Cart */}
         <button
-          className="bg-gray-600 hover:bg-gray-800 cursor-pointer text-white font-bold py-2 px-4 rounded-xl"
           onClick={handleAddToCart}
+          className="bg-blue-600 text-white rounded-xl py-2 px-4 mt-2 hover:bg-gray-700 transition"
         >
           Add to Cart
         </button>

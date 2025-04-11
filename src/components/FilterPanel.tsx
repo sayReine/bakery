@@ -1,15 +1,17 @@
-import React from "react";
-
-interface FilterState {
-  categories: string[];
-  priceRange: [number, number];
-  minRating: number;
-}
+import React from 'react';
 
 interface FilterPanelProps {
   categories: string[];
-  filter: FilterState;
-  onFilterChange: (newFilter: FilterState) => void;
+  filter: {
+    categories: string[];
+    priceRange: [number, number];
+    minRating: number;
+  };
+  onFilterChange: (filter: {
+    categories: string[];
+    priceRange: [number, number];
+    minRating: number;
+  }) => void;
   onClearFilters: () => void;
 }
 
@@ -21,85 +23,95 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
 }) => {
   const handleCategoryChange = (category: string) => {
     const newCategories = filter.categories.includes(category)
-      ? filter.categories.filter((c) => c !== category)
+      ? filter.categories.filter((cat) => cat !== category)
       : [...filter.categories, category];
 
     onFilterChange({ ...filter, categories: newCategories });
   };
 
-  const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
-    const newPrice = [...filter.priceRange] as [number, number];
-    newPrice[index] = parseFloat(e.target.value);
-    onFilterChange({ ...filter, priceRange: newPrice });
+  const handlePriceRangeChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
+    const newPriceRange = [...filter.priceRange];
+    newPriceRange[index] = parseFloat(e.target.value);
+    onFilterChange({ ...filter, priceRange: newPriceRange as [number, number] });
   };
 
-  const handleRatingChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    onFilterChange({ ...filter, minRating: parseFloat(e.target.value) });
+  const handleRatingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onFilterChange({ ...filter, minRating: parseInt(e.target.value, 10) });
   };
 
   return (
-    <div className="bg-white p-4 rounded-2xl shadow-md  w-full md:max-w-sm" >
-      <h2 className="text-xl font-semibold mb-4">🔎 Filters</h2>
-
-      {/* Category Checkboxes */}
+    <div className="bg-white p-6 rounded-xl shadow-lg">
+      <h3 className="text-xl font-semibold mb-4">Filters</h3>
+      {/* Category Filters */}
       <div className="mb-4">
-        <h3 className="font-medium mb-2">Category</h3>
-        {categories.map((cat) => (
-          <label key={cat} className="flex items-center space-x-2 mb-1">
-            <input
-              type="checkbox"
-              checked={filter.categories.includes(cat)}
-              onChange={() => handleCategoryChange(cat)}
-            />
-            <span>{cat}</span>
-          </label>
-        ))}
-      </div>
-
-      {/* Price Range */}
-      <div className="mb-4">
-        <h3 className="font-medium mb-2">Price Range (${filter.priceRange[0]} - ${filter.priceRange[1]})</h3>
-        <div className="flex space-x-2">
-          <input
-            type="number"
-            className="w-1/2 border rounded px-2 py-1"
-            min={0}
-            value={filter.priceRange[0]}
-            onChange={(e) => handlePriceChange(e, 0)}
-          />
-          <input
-            type="number"
-            className="w-1/2 border rounded px-2 py-1"
-            min={0}
-            value={filter.priceRange[1]}
-            onChange={(e) => handlePriceChange(e, 1)}
-          />
+        <h4 className="text-lg font-semibold">Categories</h4>
+        <div className="space-y-2">
+          {categories.map((category) => (
+            <div key={category} className="flex items-center">
+              <input
+                type="checkbox"
+                id={category}
+                checked={filter.categories.includes(category)}
+                onChange={() => handleCategoryChange(category)}
+                className="mr-2"
+              />
+              <label htmlFor={category} className="text-gray-700">
+                {category}
+              </label>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Rating Dropdown */}
+      {/* Price Range Filter */}
       <div className="mb-4">
-        <h3 className="font-medium mb-2">Minimum Rating</h3>
-        <select
-          value={filter.minRating}
-          onChange={handleRatingChange}
-          className="w-full border rounded px-2 py-1"
-        >
-          {[0, 1, 2, 3, 4, 5].map((r) => (
-            <option key={r} value={r}>
-              {r}+
-            </option>
-          ))}
-        </select>
+        <h4 className="text-lg font-semibold">Price Range</h4>
+        <div className="flex items-center space-x-4">
+          <input
+            type="range"
+            min="0"
+            max="1000"
+            value={filter.priceRange[0]}
+            onChange={(e) => handlePriceRangeChange(e, 0)}
+            className="w-full"
+          />
+          <input
+            type="range"
+            min="0"
+            max="1000"
+            value={filter.priceRange[1]}
+            onChange={(e) => handlePriceRangeChange(e, 1)}
+            className="w-full"
+          />
+        </div>
+        <div className="flex justify-between mt-2">
+          <span>${filter.priceRange[0]}</span>
+          <span>${filter.priceRange[1]}</span>
+        </div>
       </div>
 
-      {/* Clear Filters */}
-      <button
-        onClick={onClearFilters}
-        className="bg-gray-600 hover:bg-gray-800 cursor-pointer text-white font-bold py-2 px-4 rounded-xl transition"
-      >
-        Clear Filters
-      </button>
+      {/* Rating Filter */}
+      <div className="mb-4">
+        <h4 className="text-lg font-semibold">Minimum Rating</h4>
+        <input
+          type="number"
+          min="0"
+          max="5"
+          value={filter.minRating}
+          onChange={handleRatingChange}
+          className="w-full p-2 border border-gray-300 rounded-lg"
+        />
+      </div>
+
+      {/* Clear Filters Button */}
+      <div className="mt-6">
+        <button
+          className="bg-red-500 text-white py-2 px-4 rounded-lg w-full"
+          onClick={onClearFilters}
+        >
+          Clear Filters
+        </button>
+      </div>
     </div>
   );
 };
