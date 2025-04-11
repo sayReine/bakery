@@ -41,14 +41,14 @@ const ShoppingCart: React.FC = () => {
                   <p>${item.product.price.toFixed(2)}</p>
                   <div className="flex items-center gap-2 mt-2">
                     <button
-                      className="bg-blue-500 font-bold p-2 px-5 rounded-md"
+                      className="bg-blue-500 font-bold p-2 px-5 rounded-md cursor-pointer transition-transform duration-300 hover:scale-105"
                       onClick={() => handleQuantityChange(item.product.id, item.quantity - 1)}
                     >
                       -
                     </button>
-                    <span className="font-bold text-lg">{item.quantity}</span>
+                    <span className="font-bold text-lg ">{item.quantity}</span>
                     <button
-                      className="bg-blue-500 font-bold p-2 px-5 rounded-md"
+                      className="bg-blue-500 font-bold p-2 px-5 rounded-md cursor-pointer transition-transform duration-300 hover:scale-105"
                       onClick={() => handleQuantityChange(item.product.id, item.quantity + 1)}
                     >
                       +
@@ -56,7 +56,7 @@ const ShoppingCart: React.FC = () => {
                   </div>
                 </div>
                 <button
-                  className="bg-red-500 text-white p-2 rounded-md"
+                  className="bg-red-500 text-white cursor-pointer transition-transform duration-300 hover:scale-105  p-2 rounded-md"
                   onClick={() => handleRemove(item.product.id)}
                 >
                   Remove
@@ -66,8 +66,8 @@ const ShoppingCart: React.FC = () => {
           </ul>
 
           <div className="mt-4 flex justify-between items-center">
-            <p className="text-xl font-semibold">Total: ${totalPrice.toFixed(2)}</p>
-            <button className="bg-blue-500 text-white p-2 rounded-md">Checkout</button>
+            <p className="text-xl font-semibold py-10">Total: ${totalPrice.toFixed(2)}</p>
+            {/* <button className="bg-blue-500 text-white p-2 rounded-md">Checkout</button> */}
           </div>
         </div>
       )}
