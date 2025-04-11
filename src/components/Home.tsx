@@ -37,7 +37,7 @@ background: linear-gradient(90deg, rgba(16, 163, 222, 1) 0%, rgba(71, 164, 201, 
               key={i}
               src={img}
               alt={`Clothing ${i + 1}`}
-              className="w-60 h-80 object-cover rounded-2xl shadow-lg border-4 border-white transition-transform duration-300 hover:scale-105"
+              className="w-60 h-80 object-cover rounded-2xl shadow-lg  transition-transform duration-300 hover:scale-105"
             />
           ))}
         </div>

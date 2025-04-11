@@ -38,7 +38,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
         <p className="text-sm text-gray-400">{product.category}</p>
 
         {/* Rating */}
-        <div className="flex items-center gap-1 text-yellow-400 text-base">
+        <div className="flex items-center gap-1 text-yellow-400 text-base relative left-5">
           {Array.from({ length: 5 }, (_, i) => (
             <span key={i}>
               {i < Math.round(product.rating) ? '⭐' : '☆'}
@@ -52,7 +52,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
         {/* Add to Cart */}
         <button
           onClick={handleAddToCart}
-          className="bg-blue-600 text-white rounded-xl py-2 px-4 mt-2 hover:bg-gray-700 transition"
+          className="bg-blue-600 text-white rounded-xl py-2 px-4 mt-2 hover:bg-blue-700 cursor-pointer transition-transform duration-300 hover:scale-105 transition"
         >
           Add to Cart
         </button>
