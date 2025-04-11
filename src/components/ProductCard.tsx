@@ -42,7 +42,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
           <span className="text-sm text-gray-500 ml-1">({product.rating.toFixed(1)})</span>
         </div>
         <button
-          className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-xl"
+          className="bg-gray-600 hover:bg-gray-800 cursor-pointer text-white font-bold py-2 px-4 rounded-xl"
           onClick={handleAddToCart}
         >
           Add to Cart

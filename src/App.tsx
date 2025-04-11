@@ -6,8 +6,8 @@ import { Product } from "./types";
 import ProductGrid from "./components/ProductGrid";
 import FilterPanel from "./components/FilterPanel";
 import Footer from "./components/Footer";
-import About from './components/About Us';
-import Shop from './components/Shop';
+import About from './components/About Us'; // fixed filename
+// import Shop from './components/Shop';
 import Contact from './components/Contact';
 import Home from "./components/Home";
 import ShoppingCart from "./components/ShoppingCart";
@@ -54,16 +54,41 @@ const App: React.FC = () => {
       <div className="flex flex-col min-h-screen bg-gradient-to-br from-white to-pink-100">
 
         {/* Navbar */}
-        <nav className="bg-pink-800 text-white p-4 flex justify-between items-center">
-          <Link to="/" className="text-xl font-bold text-pink-300">
+        <nav className="bg-white text-blue-900 p-4 flex justify-between items-center shadow-md">
+          <Link to="/" className="flex items-center gap-2 text-xl font-bold text-pink-500">
             <img src={logo} alt="logo" className="h-8 w-auto" />
+            <p className='text-black'><span className='text-blue-700'>TECH</span>STYLE</p>
           </Link>
+
           <div className="flex gap-4">
-            <Link to="/" className="text-lg font-bold hover:text-gray-200">🏠 Home</Link>
-            <Link to="/about" className="text-lg font-bold hover:text-gray-200">About Us</Link>
-            <Link to="/shop" className="text-lg font-bold hover:text-gray-200">Shop</Link>
-            <Link to="/contact" className="text-lg font-bold hover:text-gray-200">Contact</Link>
-            <Link to="/cart" className="relative text-2xl hover:text-gray-200">
+            <Link
+              to="/"
+              className="text-lg font-bold hover:text-blue-700 border-b-2 border-transparent hover:border-blue-500 transition duration-200"
+            >
+              🏠 Home
+            </Link>
+            <Link
+              to="/about"
+              className="text-lg font-bold hover:text-blue-700 border-b-2 border-transparent hover:border-blue-500 transition duration-200"
+            >
+              About Us
+            </Link>
+            <Link
+              to="/shop"
+              className="text-lg font-bold hover:text-blue-700 border-b-2 border-transparent hover:border-blue-500 transition duration-200"
+            >
+              Shop
+            </Link>
+            <Link
+              to="/contact"
+              className="text-lg font-bold hover:text-blue-700 border-b-2 border-transparent hover:border-blue-500 transition duration-200"
+            >
+              Contact
+            </Link>
+            <Link
+              to="/cart"
+              className="relative text-2xl hover:text-blue-700 border-b-2 border-transparent hover:border-blue-500 transition duration-200"
+            >
               🛒
               {totalItems > 0 && (
                 <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
