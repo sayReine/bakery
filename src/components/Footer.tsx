@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
       {/* Logo + Description */}
       <div>
-        <h2 className="text-3xl font-bold text-black mb-3 tracking-wide">Esthithia</h2>
+        <h2 className="text-3xl font-bold text-teal-600 mb-3 tracking-wide">Esthithia</h2>
         <p className="text-sm leading-relaxed text-gray-600">
           Where timeless style, bold beauty, and modern trends meet to inspire your everyday magic.
         </p>
@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
   
       {/* Navigation Links */}
       <div>
-        <h3 className="text-lg font-semibold mb-3 text-black">Explore</h3>
+        <h3 className="text-lg font-semibold mb-3 text-teal">Explore</h3>
         <ul className="space-y-2 text-sm text-gray-700">
           <li><a href="./components/Home.tsx" className="hover:text-teal-500 transition duration-300">Home</a></li>
           <li><a href="shop.tsx" className="hover:text-blue-500 transition duration-300">Shop</a></li>
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
       {/* Social Media */}
       <div>
         <h3 className="text-lg font-semibold mb-3 text-black relative right-27">Follow Us</h3>
-        <div className="flex gap-5 text-2xl text-blue-600">
+        <div className="flex gap-5 text-2xl text-teal-600">
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition">
             <FontAwesomeIcon icon={faFacebookF} />
           </a>
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
     </div>
   
     {/* Copyright */}
-    <div className="mt-10 pt-6 border-t border-gray-200 text-center text-sm text-gray-500">
+    <div className="mt-10 pt-6 border-t border-teal-200 text-center text-sm text-teal-500">
       © {new Date().getFullYear()} <span className="font-semibold text-black">Esthithia</span>. All rights reserved.
     </div>
   </footer>

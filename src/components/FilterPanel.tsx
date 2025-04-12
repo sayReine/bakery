@@ -111,7 +111,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
       {/* Clear Filters Button */}
       <div className="mt-6">
         <button
-          className="bg-red-500 text-white py-2 px-4 cursor-pointer rounded-lg w-full"
+          className="bg-teal-500 text-white py-2 px-4 cursor-pointer rounded-lg w-full"
           onClick={onClearFilters}
         >
           Clear Filters
