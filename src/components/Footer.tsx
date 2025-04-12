@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
       <div>
         <h3 className="text-lg font-semibold mb-3 text-black">Explore</h3>
         <ul className="space-y-2 text-sm text-gray-700">
-          <li><a href="./components/Home.tsx" className="hover:text-blue-500 transition duration-300">Home</a></li>
+          <li><a href="./components/Home.tsx" className="hover:text-teal-500 transition duration-300">Home</a></li>
           <li><a href="shop.tsx" className="hover:text-blue-500 transition duration-300">Shop</a></li>
           <li><a href="about us.tsx" className="hover:text-blue-500 transition duration-300">About Us</a></li>
           <li><a href="contact.tsx" className="hover:text-blue-500 transition duration-300">Contact</a></li>

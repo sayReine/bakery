@@ -27,10 +27,10 @@ const App: React.FC = () => {
       <div className="min-h-screen flex flex-col bg-gradient-to-r from-teal-900 via-teal-600 to-teal-400 text-white">
 
         {/* Navbar - same */}
-        <nav className="bg-white text-blue-900 p-4 flex justify-between items-center shadow-md">
-          <Link to="/" className="flex items-center gap-2 text-xl font-bold text-blue-500">
+        <nav className="bg-white text-teal-900 p-4 flex justify-between items-center shadow-md">
+          <Link to="/" className="flex items-center gap-2 text-xl font-bold text-teal-500">
             <img src={logo} alt="logo" className="h-8 w-auto" />
-            <p className='text-black'><span className='text-blue-700'>TECH</span>STYLE</p>
+            <p className='text-black'><span className='text-teal-700'>TECH</span>STYLE</p>
           </Link>
 
           <div className="flex gap-4">
